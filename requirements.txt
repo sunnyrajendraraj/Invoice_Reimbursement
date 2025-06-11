@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+PyMuPDF
+openai
+chromadb>=0.4.24
+sentence-transformers
+python-multipart
+python-dotenv
+pytest
