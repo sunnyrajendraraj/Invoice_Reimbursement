@@ -10,10 +10,8 @@ async def analyze_invoices(
     name: str = Form(..., description="Your name")
 ):
     try:
-        # Example: Read the uploaded files (you'll need to implement actual PDF/ZIP parsing)
         policy_content = await policy_file.read()
         invoices_content = await invoices_zip.read()
-        # For demonstration, just use file names and name in the prompt
         prompt = (
             f"User: {name}\n"
             f"Policy file: {policy_file.filename} ({len(policy_content)} bytes)\n"
