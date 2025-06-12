@@ -1,18 +1,14 @@
-# from dotenv import load_dotenv
-# load_dotenv()
-
-# from fastapi import FastAPI
-# from app.api import invoice_analysis, chatbot
-
-# app = FastAPI(title="Invoice Reimbursement System")
-
-# app.include_router(invoice_analysis.router, prefix="/api/invoice", tags=["Invoice Analysis"])
-# app.include_router(chatbot.router, prefix="/api/chatbot", tags=["Chatbot"])
-
-
 from fastapi import FastAPI
 from app.api import invoice_analysis
 
-app = FastAPI()
+app = FastAPI(
+    title="Invoice Analysis API",
+    description="API for analyzing invoices against company policies using LLM.",
+    version="0.1.0"
+)
+
+@app.get("/")
+def read_root():
+    return {"message": "Welcome to the Invoice Analysis API"}
 
 app.include_router(invoice_analysis.router)
